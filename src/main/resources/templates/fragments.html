@@ -20,8 +20,9 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a th:href="@{/search}">Search</a></li>
-                    <li><a th:href="@{/list}">List</a></li>
+                    <li th:each="action : ${actions}">
+                        <a th:href="@{'/' + ${action.key}}" th:text="${action.value}"></a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -38,29 +39,29 @@
         </tr>
         <tr>
             <td>Employer</td>
-            <td>
-                <a class="data" th:text="${job.employer}" th:href="@{/list/jobs(column='employer',value=${job.employer})}">
+            <td class="data" th:text="${job.employer}">
+                <a th:href="@{/list/jobs(column='employer',value=${job.employer})}">
                 </a>
             </td>
         </tr>
         <tr>
             <td>Location</td>
-            <td>
-                <a class="data" th:text="${job.location}" th:href="@{/list/jobs(column='location',value=${job.location})}">
+            <td class="data" th:text="${job.location}">
+                <a th:href="@{/list/jobs(column='location',value=${job.location})}">
                 </a>
             </td>
         </tr>
         <tr>
             <td>Position Type</td>
-            <td>
-                <a class="data" th:text="${job.positionType}" th:href="@{/list/jobs(column='positionType',value=${job.positionType})}">
+            <td class="data" th:text="${job.positionType}">
+                <a th:href="@{/list/jobs(column='positionType',value=${job.positionType})}">
                 </a>
             </td>
         </tr>
         <tr>
             <td>Skill</td>
-            <td>
-                <a class="data" th:text="${job.coreCompetency}" th:href="@{/list/jobs(column='coreCompetency',value=${job.coreCompetency})}">
+            <td class="data" th:text="${job.coreCompetency}">
+                <a th:href="@{/list/jobs(column='coreCompetency',value=${job.coreCompetency})}">
                 </a>
             </td>
         </tr>
